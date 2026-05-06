@@ -2,20 +2,42 @@
 
 import { motion } from 'motion/react';
 import { MagneticButton } from '../magnetic-button';
+import { useEffect, useRef } from 'react';
 
 function CinematicVideo() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      // Force muted and play for aggressive browser policies
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      const playPromise = videoRef.current.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.log("Autoplay hindered:", error);
+        });
+      }
+    }
+  }, []);
+
   return (
     <div className="w-full h-full relative rounded-none overflow-hidden border border-white/10 shadow-2xl bg-[#060D2C]">
       <div className="absolute inset-0 z-0">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full object-cover transition-opacity duration-1000"
+          poster="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2670&auto=format&fit=crop"
+          className="w-full h-full object-cover"
         >
-          {/* Using a reliable high-quality architectural construction & luxury lifestyle video source */}
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-house-architecture-1402-large.mp4" type="video/mp4" />
+          {/* Using highly reliable and visually aligned luxury architecture cinematography sources */}
+          <source src="https://cdn.pixabay.com/video/2021/04/12/70860-536967732_large.mp4" type="video/mp4" />
+          <source src="https://cdn.pixabay.com/video/2020/09/25/51152-464303498_large.mp4" type="video/mp4" />
+          <source src="https://player.vimeo.com/external/494163966.hd.mp4?s=8322668582f3484f37478d910a5682823631525b&profile_id=175" type="video/mp4" />
         </video>
       </div>
       
