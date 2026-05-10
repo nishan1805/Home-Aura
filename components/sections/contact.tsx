@@ -6,8 +6,8 @@ import { SectionLabel } from '../ui/section-label';
 
 export function Contact() {
   return (
-    <section id="contact" className="py-24 bg-beige text-navy relative">
-      <div className="absolute top-0 right-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2670&auto=format&fit=crop')] opacity-[0.03] grayscale mix-blend-overlay pointer-events-none" />
+    <section id="contact" className="py-24 bg-[#F8F6F1] text-navy relative">
+      <div className="absolute top-0 right-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] opacity-[0.05] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -39,7 +39,7 @@ export function Contact() {
                 { icon: Mail, text: 'homeauradesign82@gmail.com' },
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-none bg-navy/5 border border-navy/10 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-none bg-white border border-navy/10 flex items-center justify-center shrink-0 shadow-sm">
                     <item.icon size={18} className="text-gold" />
                   </div>
                   <span className="text-navy/80 text-sm">{item.text}</span>
@@ -69,9 +69,9 @@ export function Contact() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold uppercase tracking-wider text-navy/60">Project Type</label>
-                  <select className="w-full bg-beige/50 border border-navy/10 rounded-none px-4 py-3 text-sm text-navy focus:outline-none focus:border-gold/50 transition-colors appearance-none">
-                    <option>Interior Design</option>
-                    <option>Turnkey Construction</option>
+                  <select className="w-full bg-beige/50 border border-navy/10 rounded-none px-4 py-3 text-sm text-navy focus:outline-none focus:border-gold/50 transition-colors appearance-none" defaultValue="Civil Construction">
+                    <option>Civil Construction</option>
+                    <option>Design (Architectural, Interior and Structural)</option>
                     <option>Renovation</option>
                     <option>Other</option>
                   </select>
@@ -80,14 +80,10 @@ export function Contact() {
                   <label className="text-[10px] font-bold uppercase tracking-wider text-navy/60">Message</label>
                   <textarea rows={4} className="w-full bg-beige/50 border border-navy/10 rounded-none px-4 py-3 text-sm text-navy focus:outline-none focus:border-gold/50 transition-colors resize-none" placeholder="Tell us about your project..."></textarea>
                 </div>
-                <div className="pt-2 flex flex-col sm:flex-row gap-4">
-                  <button type="submit" className="flex-1 bg-navy text-white hover:bg-navy/90 py-4 rounded-none font-bold uppercase text-xs tracking-widest transition-colors">
+                <div className="pt-2">
+                  <button type="submit" className="w-full bg-navy text-white hover:bg-navy/90 py-4 rounded-none font-bold uppercase text-xs tracking-widest transition-colors">
                     Request Consultation
                   </button>
-                  <a href="https://wa.me/916264555840" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 border border-gray-200 text-navy hover:bg-gray-50 py-4 px-6 rounded-none font-bold uppercase text-xs tracking-widest transition-colors">
-                    <MessageSquare size={16} />
-                    WhatsApp
-                  </a>
                 </div>
               </form>
             </motion.div>

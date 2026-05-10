@@ -31,8 +31,10 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 bg-white text-navy relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="testimonials" className="py-24 bg-[#F8F6F1] text-navy relative overflow-hidden">
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-0" 
+           style={{ backgroundImage: `url('https://www.transparenttextures.com/patterns/natural-paper.png')` }} />
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="max-w-xl">
@@ -56,14 +58,14 @@ export function Testimonials() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="bg-beige/30 border border-navy/5 rounded-none p-8"
+              className="bg-white border border-gray-100 shadow-sm rounded-none p-8"
             >
               <div className="flex gap-1 mb-6">
                 {[...Array(test.rating)].map((_, idx) => (
                   <Star key={idx} className="w-4 h-4 fill-gold text-gold" />
                 ))}
               </div>
-              <p className="text-navy/80 font-light leading-relaxed mb-8 text-sm md:text-base">
+              <p className="text-navy/60 font-light leading-relaxed mb-8 text-sm md:text-base">
                 &ldquo;{test.text}&rdquo;
               </p>
               

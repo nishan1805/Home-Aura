@@ -72,7 +72,7 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.7, delay: (index % 2) * 0.2 }}
-      className={`group cursor-pointer relative rounded-none overflow-hidden ${project.theme === 'dark' ? 'bg-navy text-white' : 'bg-white text-navy'} border border-navy/5 shadow-sm`}
+      className={`group cursor-pointer relative rounded-none overflow-hidden ${project.theme === 'dark' ? 'bg-[#0A1235] text-white' : 'bg-white text-navy'} border ${project.theme === 'dark' ? 'border-white/5' : 'border-navy/5'} shadow-2xl`}
     >
       {/* Image Carousel */}
       <div className="relative h-[400px] lg:h-[500px] w-full overflow-hidden grayscale-[0.2] contrast-[1.1]">
@@ -129,8 +129,10 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
 
 export function Projects() {
   return (
-    <section id="projects" className="py-24 bg-beige relative">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="projects" className="py-24 bg-[#F8F6F1] relative">
+      <div className="absolute inset-0 opacity-[0.05] pointer-events-none z-0" 
+           style={{ backgroundImage: `url('https://www.transparenttextures.com/patterns/natural-paper.png')` }} />
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="max-w-xl">
@@ -141,7 +143,7 @@ export function Projects() {
               viewport={{ once: true }}
               className="text-4xl lg:text-5xl font-light font-serif text-navy"
             >
-              Signatures of <span className="italic">Luxury.</span>
+              Signatures of <span className="italic text-gold">Luxury.</span>
             </motion.h2>
           </div>
         </div>

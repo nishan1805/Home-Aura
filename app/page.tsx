@@ -9,6 +9,7 @@ import { Testimonials } from '@/components/sections/testimonials';
 import { Process } from '@/components/sections/process';
 import { Contact } from '@/components/sections/contact';
 import { Footer } from '@/components/sections/footer';
+import { WhatsAppButton } from '@/components/ui/whatsapp-button';
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <Process />
       <Contact />
       <Footer />
+      <WhatsAppButton />
     </main>
   );
 }

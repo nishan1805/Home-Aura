@@ -73,9 +73,9 @@ function CinematicVideo() {
 
 export function Hero() {
   return (
-    <section id="home" className="relative lg:min-h-[85vh] min-h-[700px] flex flex-col justify-center overflow-hidden bg-navy pt-24 pb-20">
-      <div className="absolute inset-0 opacity-5 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/graphy-dark.png')]"></div>
+    <section id="home" className="relative lg:min-h-[85vh] min-h-[700px] flex flex-col justify-center overflow-hidden bg-[#F8F6F1] pt-32 pb-20">
+      <div className="absolute inset-0 opacity-20 pointer-events-none z-0">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')]"></div>
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -85,8 +85,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.1] mb-8 font-serif text-white">
-              Building <span className="italic text-gold">Elegant</span> Spaces That Stand The Test Of Time.
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.1] mb-8 font-serif text-navy">
+              A Peaceful Home Creates A <span className="italic text-gold">Powerful Aura.</span>
             </h1>
           </motion.div>
           
@@ -94,7 +94,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg text-white/60 max-w-xl mb-10 leading-relaxed font-light"
+            className="text-lg text-navy/60 max-w-xl mb-10 leading-relaxed font-light"
           >
             Premium turnkey construction and architectural solutions crafted with structural excellence, modern aesthetics, and timeless Indian craftsmanship.
           </motion.p>
@@ -106,14 +106,14 @@ export function Hero() {
             className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6"
           >
             <MagneticButton>
-              <a href="#contact" className="inline-flex items-center justify-center px-10 py-5 bg-gold text-navy font-bold uppercase text-xs tracking-widest rounded-none hover:bg-white transition-colors duration-300">
+              <a href="#contact" className="inline-flex items-center justify-center px-10 py-5 bg-navy text-white font-bold uppercase text-xs tracking-widest rounded-none hover:bg-gold hover:text-navy transition-colors duration-300">
                 Book Consultation
                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
               </a>
             </MagneticButton>
             <MagneticButton>
-              <a href="#projects" className="inline-flex justify-center px-10 py-5 border border-white/20 hover:border-white text-white transition-all font-bold uppercase text-xs tracking-widest rounded-none">
-                View Projects
+              <a href="#packages" className="inline-flex justify-center px-10 py-5 border border-navy/20 hover:border-navy text-navy transition-all font-bold uppercase text-xs tracking-widest rounded-none">
+                View Packages
               </a>
             </MagneticButton>
           </motion.div>
@@ -123,7 +123,7 @@ export function Hero() {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full lg:w-[45%] h-[300px] sm:h-[400px] lg:h-[550px] mt-12 lg:mt-0 relative"
+          className="w-full lg:w-[45%] h-[280px] sm:h-[350px] lg:h-[500px] mt-16 lg:mt-0 relative"
         >
           <CinematicVideo />
         </motion.div>

@@ -18,7 +18,7 @@ export function Process() {
     <section className="py-32 bg-[#060D2C] relative text-white overflow-hidden">
       {/* Architectural grid background */}
       <div 
-        className="absolute inset-0 z-0 opacity-20 pointer-events-none mix-blend-overlay border-t border-white/5" 
+        className="absolute inset-0 z-0 opacity-5 pointer-events-none mix-blend-overlay border-t border-white/5" 
         style={{ 
           backgroundImage: `
             linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), 
@@ -29,7 +29,7 @@ export function Process() {
       />
 
       {/* Subtle glowing radial gradients */}
-      <div className="absolute top-1/4 left-0 w-full h-[500px] bg-gold/5 blur-[120px] rounded-full pointer-events-none -translate-y-1/2 z-0" />
+      <div className="absolute top-1/4 left-0 w-full h-[500px] bg-gold/10 blur-[120px] rounded-full pointer-events-none -translate-y-1/2 z-0" />
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
         
@@ -63,23 +63,23 @@ export function Process() {
                 >
                   {/* Process Card */}
                   <div className={`
-                    w-full bg-[#060D2C]/60 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] 
-                    border border-white/5 hover:border-gold/30 hover:-translate-y-2 transition-all duration-500 
-                    rounded-none p-10 flex flex-col relative z-20 group lg:absolute 
-                    ${isEven ? 'lg:top-0' : 'lg:bottom-0'} lg:h-[260px] my-4 lg:my-0
+                    w-full bg-white/5 backdrop-blur-xl shadow-xl 
+                    border border-white/10 hover:border-gold/30 hover:-translate-y-2 transition-all duration-500 
+                    rounded-none p-8 flex flex-col relative z-20 group lg:absolute 
+                    ${isEven ? 'lg:top-0' : 'lg:bottom-0'} lg:h-[240px] my-4 lg:my-0
                   `}>
                     {/* Background glow effect on hover */}
                     <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                     {/* Outlined text number */}
-                    <div className="absolute top-6 right-6 text-6xl font-serif text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.08)] group-hover:[-webkit-text-stroke:1px_rgba(212,175,55,0.4)] transition-all duration-700 select-none">
+                    <div className="absolute top-6 right-6 text-6xl font-serif text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.05)] group-hover:[-webkit-text-stroke:1px_rgba(212,175,55,0.4)] transition-all duration-700 select-none">
                       {step.num}
                     </div>
                     
-                    <step.icon className="text-gold mb-10 stroke-[1px] w-10 h-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
+                    <step.icon className="text-gold mb-4 stroke-[1.5px] w-8 h-8 opacity-70 group-hover:opacity-100 transition-all duration-500" />
                     
-                    <h3 className="text-white font-serif tracking-widest uppercase text-lg font-bold mb-4">{step.title}</h3>
-                    <p className="text-white/70 text-sm leading-relaxed font-sans">{step.desc}</p>
+                    <h3 className="text-white font-serif tracking-widest uppercase text-base font-bold mb-3">{step.title}</h3>
+                    <p className="text-white/60 text-xs leading-relaxed font-sans">{step.desc}</p>
                   </div>
 
                   {/* Architecture Connecting Lines (only on large screens) */}
@@ -89,7 +89,7 @@ export function Process() {
                       className={`
                         absolute left-1/2 w-[1px] bg-white/10 transition-all duration-700 
                         group-hover:bg-gold/40 -translate-x-1/2
-                        ${isEven ? 'top-[260px]' : 'bottom-[260px]'}
+                        ${isEven ? 'top-[240px]' : 'bottom-[240px]'}
                       `}
                       style={{ height: '20px' }}
                     />
