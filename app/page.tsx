@@ -10,6 +10,7 @@ import { Process } from '@/components/sections/process';
 import { Contact } from '@/components/sections/contact';
 import { Footer } from '@/components/sections/footer';
 import { WhatsAppButton } from '@/components/ui/whatsapp-button';
+import { CallButton } from '@/components/ui/call-button';
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
       <Process />
       <Contact />
       <Footer />
+      <CallButton />
       <WhatsAppButton />
     </main>
   );

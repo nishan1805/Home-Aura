@@ -8,7 +8,7 @@ import { SectionLabel } from '../ui/section-label';
 const categories = [
   { id: 'construction', label: 'Construction Work' },
   { id: 'finish', label: 'Finish Work' },
-  { id: 'design', label: 'Design' }
+  { id: 'design', label: 'Design Work' }
 ];
 
 const packagesData = {
@@ -21,7 +21,7 @@ const packagesData = {
         'Bangur / JK Laxmi Cement',
         'Second Class Red Brick / Fly Ash Brick',
         'Basic Workmanship',
-        'Complimentary Floor Plan + Structural Drawing'
+        '🎁 FREE: Floor Plan + Structural Drawing'
       ]
     },
     {
@@ -33,7 +33,7 @@ const packagesData = {
         'Ambuja / ACC / Nuvoco Cement',
         'Good Quality Red Brick',
         'Good Workmanship',
-        'Complimentary Complete Home Design (Architectural + Structural + Electrical + Plumbing + 3D Elevation)'
+        '🎁 FREE: Complete Home Design (Architectural + Structural + Electrical + Plumbing + 3D Elevation)'
       ]
     },
     {
@@ -44,7 +44,7 @@ const packagesData = {
         'Ultratech Cement',
         'First Class Red Brick',
         'Best Workmanship',
-        'Complimentary Complete Home Design + Roof Waterproofing'
+        '🎁 FREE: Complete Home Design + Roof Waterproofing'
       ]
     }
   ],
@@ -121,8 +121,8 @@ const packagesData = {
       price: 'Custom Quote',
       cta: 'Request Custom Quote',
       features: [
-        'Architectural Planning from ₹3/sq.ft.',
-        'Architecture + Structure from ₹9/sq.ft.'
+        'Architectural Planning from <span class="text-gold font-semibold">₹3/sq.ft.</span>',
+        'Architecture + Structure from <span class="text-gold font-semibold">₹9/sq.ft.</span>'
       ]
     }
   ]
@@ -222,14 +222,25 @@ export function Pricing() {
 
                   <div className="flex-grow pt-6 border-t border-white/10">
                     <ul className="space-y-4">
-                      {pkg.features.map((feature: string, idx: number) => (
-                        <li key={idx} className="flex items-start gap-4">
-                          <Check className="mt-1 shrink-0 w-4 h-4 text-gold/60" />
-                          <span className="text-sm text-white/60 font-light leading-relaxed">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
+                      {pkg.features.map((feature: string, idx: number) => {
+                        const isFree = feature.includes('🎁 FREE:');
+                        const isConstruction = activeTab === 'construction';
+                        const isLast = idx === pkg.features.length - 1;
+                        
+                        return (
+                          <li key={idx} className={`flex items-start gap-4 ${isFree && isConstruction && isLast ? 'mt-8 pt-4 border-t border-white/5' : ''}`}>
+                            <Check className={`mt-1 shrink-0 w-4 h-4 ${isFree && isConstruction && isLast ? 'text-gold' : 'text-gold/60'}`} />
+                            <span 
+                              className={`text-sm leading-relaxed ${
+                                isFree && isConstruction && isLast 
+                                  ? 'text-white font-bold' 
+                                  : 'text-white font-semibold'
+                              }`}
+                              dangerouslySetInnerHTML={{ __html: feature.replace('🎁 FREE:', '<span class="inline-block bg-gold/10 text-gold text-[10px] font-bold px-2 py-0.5 mr-2 rounded-sm border border-gold/20">FREE</span>') }}
+                            />
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
 

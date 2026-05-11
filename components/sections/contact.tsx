@@ -29,7 +29,7 @@ export function Contact() {
               transition={{ delay: 0.1 }}
               className="text-navy/60 text-lg leading-relaxed mb-10 max-w-lg"
             >
-              Book a free consultation with our expert architects and structural engineers. We typically reply within 2 hours.
+              Book a free consultation with our expert architects and structural engineers.
             </motion.p>
             
             <div className="space-y-6">
