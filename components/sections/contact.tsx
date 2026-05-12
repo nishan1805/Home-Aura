@@ -93,7 +93,7 @@ export function Contact() {
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold uppercase tracking-wider text-navy/60">Project Type</label>
                   <div className="relative">
-                    <select className="w-full bg-beige/50 border border-navy/10 rounded-none px-4 py-3 text-sm text-navy focus:outline-none focus:border-gold/50 transition-colors appearance-none pr-10" defaultValue="Civil Construction">
+                    <select name="project_type" className="w-full bg-beige/50 border border-navy/10 rounded-none px-4 py-3 text-sm text-navy focus:outline-none focus:border-gold/50 transition-colors appearance-none pr-10" defaultValue="Civil Construction">
                       <option>Civil Construction</option>
                       <option>Design (Architectural, Interior and Structural)</option>
                       <option>Renovation</option>
@@ -101,13 +101,7 @@ export function Contact() {
                     </select>
                     <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-navy/40 pointer-events-none" />
                   </div>
-=======
-                  <select name="project_type" className="w-full bg-beige/50 border border-navy/10 rounded-none px-4 py-3 text-sm text-navy focus:outline-none focus:border-gold/50 transition-colors appearance-none" defaultValue="Civil Construction">
-                    <option>Civil Construction</option>
-                    <option>Design (Architectural, Interior and Structural)</option>
-                    <option>Renovation</option>
-                    <option>Other</option>
-                  </select>
+
  
                 </div>
                 <div className="space-y-2">

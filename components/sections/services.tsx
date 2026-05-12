@@ -20,7 +20,7 @@ export function Services() {
           <SectionLabel light>Our Expertise</SectionLabel>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 15, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl lg:text-5xl font-light font-serif text-white mb-6"
           >
@@ -28,7 +28,7 @@ export function Services() {
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 15, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             className="text-white/60 text-lg"
@@ -47,7 +47,7 @@ export function Services() {
               transition={{ duration: 0.5, delay: i * 0.05 }}
               className={`group overflow-hidden relative cursor-pointer min-h-[300px] bg-navy border border-gray-200 transition-all duration-500 ${svc.span}`}
             >
-              <div className="absolute inset-0 opacity-100 transition-all duration-700">
+              <div className="absolute inset-0 opacity-100  bg-gradient-to-t from-navy/60 to-transparent transition-all duration-700">
                 <Image 
                   src={svc.img} 
                   alt={svc.title} 

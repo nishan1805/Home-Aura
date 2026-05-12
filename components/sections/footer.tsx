@@ -12,10 +12,9 @@ export function Footer() {
         <div className="flex flex-col items-center text-center">
           {/* Logo */}
           <Link href="#about" className="flex items-center space-x-3 mb-8 group">
-            <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center transition-transform duration-500 group-hover:rotate-[360deg]">
-               <Image src="/images/logoha.png" alt="logo" width={40} height={40} />
+            <div>
+               <Image src="/images/logoha.png" alt="logo" width={220} height={200} />
             </div>
-            <span className="text-xl font-light tracking-[0.2em] uppercase text-white">Home Aura</span>
           </Link>
 
           {/* Short Brand Description */}

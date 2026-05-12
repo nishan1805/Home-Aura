@@ -44,11 +44,10 @@ export function Navigation() {
         {/* Logo */}
         < Link href="#home" className="flex items-center space-x-2">
 
-          <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
-          <Image src="/images/logoha.png"  alt="Home Aura Logo" width={120} height={40} className="object-contain"/>
-           
+          <div>
+          <Image src="/images/logoha.png"  alt="Home Aura Logo" width={150} height={80} className="object-contain"/>
           </div>
-          <span className="text-lg font-bold tracking-tight uppercase text-white">Home Aura</span>
+          {/* <span className="text-lg font-bold tracking-tight uppercase text-white">Home Aura</span> */}
         </Link>
 
         {/* Desktop Nav */}
