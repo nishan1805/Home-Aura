@@ -92,7 +92,6 @@ export function Contact() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold uppercase tracking-wider text-navy/60">Project Type</label>
-<<<<<<< HEAD
                   <div className="relative">
                     <select className="w-full bg-beige/50 border border-navy/10 rounded-none px-4 py-3 text-sm text-navy focus:outline-none focus:border-gold/50 transition-colors appearance-none pr-10" defaultValue="Civil Construction">
                       <option>Civil Construction</option>
@@ -109,7 +108,7 @@ export function Contact() {
                     <option>Renovation</option>
                     <option>Other</option>
                   </select>
->>>>>>> 2965788 (updated UI, contact form, favicon, and assets)
+ 
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold uppercase tracking-wider text-navy/60">Message</label>
