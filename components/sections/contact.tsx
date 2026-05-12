@@ -4,12 +4,12 @@ import { motion } from 'motion/react';
 import { MapPin, Phone, Mail, MessageSquare, ChevronDown } from 'lucide-react';
 import { SectionLabel } from '../ui/section-label';
 import emailjs from '@emailjs/browser';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 
 export function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     emailjs.sendForm(
