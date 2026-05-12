@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { SectionLabel } from '../ui/section-label';
 
 const services = [
-  { img: 'https://images.unsplash.com/photo-1504307682559-09db125c2a44?q=80&w=2670&auto=format&fit=crop', title: 'Civil Construction', span: 'col-span-1 md:col-span-2 lg:col-span-2 row-span-2', desc: 'Complete residential civil construction with expert supervision and quality workmanship.' },
+  { img: 'https://images.unsplash.com/photo-1504917595217-d4dc5feb48f4?q=80&w=2670&auto=format&fit=crop', title: 'Civil Construction', span: 'col-span-1 md:col-span-2 lg:col-span-2 row-span-2', desc: 'Complete residential civil construction with expert supervision and quality workmanship.' },
   { img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2671&auto=format&fit=crop', title: 'Design: Architecture, Structural & Interior', span: 'col-span-1 md:col-span-2 lg:col-span-2', desc: 'Comprehensive architectural, structural and interior design tailored to your vision.' },
   { img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2670&auto=format&fit=crop', title: 'Turnkey Construction', span: 'col-span-1 md:col-span-2 lg:col-span-2', desc: 'End-to-end design and construction solutions from planning to final handover.' },
 ];
