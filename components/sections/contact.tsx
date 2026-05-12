@@ -3,8 +3,27 @@
 import { motion } from 'motion/react';
 import { MapPin, Phone, Mail, MessageSquare, ChevronDown } from 'lucide-react';
 import { SectionLabel } from '../ui/section-label';
+import emailjs from '@emailjs/browser';
+import { useRef } from 'react';
 
 export function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      'service_homeaura',
+      'template_0lnxvip',
+      formRef.current!,
+      '1UYmyFpf1R8zl34zO'
+    ).then(() => {
+      alert('Message sent successfully!');
+    }).catch((error) => {
+      console.log(error.text);
+    });
+  };
+
   return (
     <section id="contact" className="py-24 bg-[#F8F6F1] text-navy relative">
       <div className="absolute top-0 right-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] opacity-[0.05] pointer-events-none" />
@@ -56,15 +75,15 @@ export function Contact() {
               className="bg-white rounded-none p-8 lg:p-10 shadow-lg border border-gray-100 relative"
             >
               <h3 className="text-xl font-bold uppercase tracking-wider text-navy mb-6">Send an Inquiry</h3>
-              <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+              <form ref={formRef} className="space-y-5" onSubmit={sendEmail}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold uppercase tracking-wider text-navy/60">Full Name</label>
-                    <input type="text" className="w-full bg-beige/50 border border-navy/10 rounded-none px-4 py-3 text-sm text-navy focus:outline-none focus:border-gold/50 transition-colors" placeholder="John Doe" />
+                    <input name="name" type="text" className="w-full bg-beige/50 border border-navy/10 rounded-none px-4 py-3 text-sm text-navy focus:outline-none focus:border-gold/50 transition-colors" placeholder="John Doe" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold uppercase tracking-wider text-navy/60">Phone</label>
-                    <input type="tel" className="w-full bg-beige/50 border border-navy/10 rounded-none px-4 py-3 text-sm text-navy focus:outline-none focus:border-gold/50 transition-colors" placeholder="+91" />
+                    <input name="phone" type="tel" className="w-full bg-beige/50 border border-navy/10 rounded-none px-4 py-3 text-sm text-navy focus:outline-none focus:border-gold/50 transition-colors" placeholder="+91" />
                   </div>
                 </div>
                 <div className="space-y-2">
@@ -73,6 +92,7 @@ export function Contact() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold uppercase tracking-wider text-navy/60">Project Type</label>
+<<<<<<< HEAD
                   <div className="relative">
                     <select className="w-full bg-beige/50 border border-navy/10 rounded-none px-4 py-3 text-sm text-navy focus:outline-none focus:border-gold/50 transition-colors appearance-none pr-10" defaultValue="Civil Construction">
                       <option>Civil Construction</option>
@@ -82,6 +102,14 @@ export function Contact() {
                     </select>
                     <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-navy/40 pointer-events-none" />
                   </div>
+=======
+                  <select name="project_type" className="w-full bg-beige/50 border border-navy/10 rounded-none px-4 py-3 text-sm text-navy focus:outline-none focus:border-gold/50 transition-colors appearance-none" defaultValue="Civil Construction">
+                    <option>Civil Construction</option>
+                    <option>Design (Architectural, Interior and Structural)</option>
+                    <option>Renovation</option>
+                    <option>Other</option>
+                  </select>
+>>>>>>> 2965788 (updated UI, contact form, favicon, and assets)
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold uppercase tracking-wider text-navy/60">Message</label>

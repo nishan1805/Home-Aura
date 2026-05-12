@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Instagram } from 'lucide-react';
 import Link from 'next/link';
 import { MagneticButton } from './magnetic-button';
+import Image from 'next/image';
 
 const navLinks = [
   { name: 'About', href: '#about' },
@@ -41,9 +42,11 @@ export function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-10 flex items-center justify-between">
         {/* Logo */}
-        <Link href="#home" className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-gold rounded-full flex items-center justify-center">
-            <span className="text-navy font-bold text-xs">HA</span>
+        < Link href="#home" className="flex items-center space-x-2">
+
+          <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
+          <Image src="/images/logoha.png"  alt="Home Aura Logo" width={120} height={40} className="object-contain"/>
+           
           </div>
           <span className="text-lg font-bold tracking-tight uppercase text-white">Home Aura</span>
         </Link>
