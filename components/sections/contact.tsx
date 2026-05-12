@@ -79,7 +79,7 @@ export function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold uppercase tracking-wider text-navy/60">Full Name</label>
-                    <input name="name" type="text" className="w-full bg-beige/50 border border-navy/10 rounded-none px-4 py-3 text-sm text-navy focus:outline-none focus:border-gold/50 transition-colors" placeholder="John Doe" />
+                    <input name="full_name" type="text" className="w-full bg-beige/50 border border-navy/10 rounded-none px-4 py-3 text-sm text-navy focus:outline-none focus:border-gold/50 transition-colors" placeholder="John Doe" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold uppercase tracking-wider text-navy/60">Phone</label>
@@ -88,7 +88,7 @@ export function Contact() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold uppercase tracking-wider text-navy/60">Email</label>
-                  <input type="email" required className="w-full bg-beige/50 border border-navy/10 rounded-none px-4 py-3 text-sm text-navy focus:outline-none focus:border-gold/50 transition-colors" placeholder="your@email.com" />
+                  <input name="email" type="email" required className="w-full bg-beige/50 border border-navy/10 rounded-none px-4 py-3 text-sm text-navy focus:outline-none focus:border-gold/50 transition-colors" placeholder="your@email.com" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold uppercase tracking-wider text-navy/60">Project Type</label>
@@ -106,7 +106,7 @@ export function Contact() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold uppercase tracking-wider text-navy/60">Message</label>
-                  <textarea rows={4} className="w-full bg-beige/50 border border-navy/10 rounded-none px-4 py-3 text-sm text-navy focus:outline-none focus:border-gold/50 transition-colors resize-none" placeholder="Tell us about your project..."></textarea>
+                  <textarea name="message" rows={4} className="w-full bg-beige/50 border border-navy/10 rounded-none px-4 py-3 text-sm text-navy focus:outline-none focus:border-gold/50 transition-colors resize-none" placeholder="Tell us about your project..."></textarea>
                 </div>
                 <div className="pt-2">
                   <button type="submit" className="w-full bg-navy text-white hover:bg-navy/90 py-4 rounded-none font-bold uppercase text-xs tracking-widest transition-colors">
