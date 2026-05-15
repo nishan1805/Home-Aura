@@ -18,7 +18,7 @@ const packagesData = {
       price: '₹839/sq.ft.',
       features: [
         'Kay-2 TMT Steel',
-        'Bangur / JK Laxmi Cement',
+        'Bangur / JK Lakshmi Cement',
         'Second Class Red Brick / Fly Ash Brick',
         'Basic Workmanship',
         '🎁 FREE: Floor Plan + Structural Drawing'
