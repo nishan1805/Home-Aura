@@ -53,7 +53,7 @@ const packagesData = {
       name: 'Basic Finish Package',
       price: '₹1449/sq.ft.',
       features: [
-        'Kay-2 TMT Steel + Bangur / JK Laxmi Cement',
+        'Kay-2 TMT Steel + Bangur / JK Lakshmi Cement',
         'Second Class Red Brick / Fly Ash Brick',
         'Basic Quality Vitrified Tiles',
         'Standard Electrical & Plumbing Fittings',
