@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-export default function Hero() {
+export function Hero() {
   return (
     <section
       id="home"
@@ -20,13 +20,13 @@ export default function Hero() {
         <source src="/videos/hero-video.mp4" type="video/mp4" />
       </video>
 
-      {/* Overlay */}
+      {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/35 z-10"></div>
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/40 z-10"></div>
 
-      {/* Content */}
+      {/* Hero Content */}
       <div className="relative z-20 max-w-6xl mx-auto px-6 text-center">
         <h1 className="font-serif font-light leading-[0.95] tracking-tight text-white text-4xl sm:text-5xl md:text-6xl lg:text-[64px]">
           We Create{' '}
