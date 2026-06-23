@@ -95,8 +95,7 @@ const packagesData = {
       features: [
         'Floor Plan',
         'Structure Design',
-        'MEP Design',
-        'Exterior Design'
+        'MEP Design'
       ]
     },
     {
@@ -108,11 +107,11 @@ const packagesData = {
       ]
     },
     {
-      name: 'Design + Structural Consultancy',
-      price: '₹50/sq.ft.',
+      name: 'Design + Complete Structural Consultancy',
+      price: '₹70/sq.ft.',
       features: [
         'Complete Design Support',
-        'Structural Guidance',
+        'Complete Structural Guidance',
         'Site Consultation'
       ]
     },
