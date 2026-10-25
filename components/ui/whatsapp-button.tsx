@@ -18,8 +18,9 @@ export function WhatsAppButton() {
       whileHover={{ scale: 1.1, boxShadow: '0 0 20px rgba(37, 211, 102, 0.4)' }}
       whileTap={{ scale: 0.9 }}
       transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-      className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[9999] flex items-center justify-center bg-[#25D366] text-white rounded-full shadow-2xl w-[52px] h-[52px] md:w-[60px] md:h-[60px]"
-      aria-label="Contact us on WhatsApp"
+      className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[9999] flex items-center justify-center bg-[#25D366] text-white rounded-full shadow-2xl w-[52px] h-[52px] md:w-[60px] md:h-[60px] focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
+      aria-label="Chat with Home Aura on WhatsApp"
+      title="Chat with Home Aura on WhatsApp"
       id="whatsapp-floating-button"
     >
       <svg

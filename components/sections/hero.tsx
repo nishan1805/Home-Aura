@@ -43,12 +43,14 @@ export function Hero() {
 
         {/* Buttons */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            href="#contact"
+          <a
+            href="https://wa.me/916264555840?text=Hi%20Home%20Aura%2C%20I%20would%20like%20to%20book%20a%20consultation%20to%20discuss%20my%20construction%20and%20design%20requirements.%20Please%20share%20more%20details."
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-7 py-3.5 bg-[#D4AF37] hover:bg-[#c49b27] text-black font-semibold text-xs uppercase tracking-[0.18em] rounded-xl transition-all duration-300"
           >
             Book Consultation
-          </Link>
+          </a>
 
           <Link
             href="#projects"

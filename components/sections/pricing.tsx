@@ -5,28 +5,39 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Check } from 'lucide-react';
 import { SectionLabel } from '../ui/section-label';
 
+interface PackageItem {
+  name: string;
+  price?: string;
+  oldPrice?: string;
+  discountBadge?: string;
+  highlighted?: boolean;
+  badge?: string;
+  cta?: string;
+  features: string[];
+  whatsappMessage: string;
+}
+
 const categories = [
   { id: 'construction', label: 'Construction Work' },
   { id: 'finish', label: 'Finish Work' },
   { id: 'design', label: 'Design Work' }
 ];
 
-const packagesData = {
+const packagesData: Record<string, PackageItem[]> = {
   construction: [
     {
       name: 'Basic Structure Package',
-      price: '₹839/sq.ft.',
       features: [
         'Kay-2 TMT Steel',
         'Bangur / JK Lakshmi Cement',
         'Second Class Red Brick / Fly Ash Brick',
         'Basic Workmanship',
         '🎁 FREE: Floor Plan + Structural Drawing'
-      ]
+      ],
+      whatsappMessage: 'Hi Home Aura, I would like to know more about your Construction Work — Basic Structure Package. Please share the detailed quotation and inclusions.'
     },
     {
       name: 'Standard Structure Package',
-      price: '₹899/sq.ft.',
       highlighted: true,
       features: [
         'Kamdhenu / GK TMT / Goel TMT',
@@ -34,24 +45,24 @@ const packagesData = {
         'Good Quality Red Brick',
         'Good Workmanship',
         '🎁 FREE: Complete Home Design (Architectural + Structural + Electrical + Plumbing + 3D Elevation)'
-      ]
+      ],
+      whatsappMessage: 'Hi Home Aura, I would like to know more about your Construction Work — Standard Structure Package. Please share the detailed quotation and inclusions.'
     },
     {
       name: 'Premium Structure Package',
-      price: '₹1049/sq.ft.',
       features: [
         'Jindal / Tata TMT Steel',
         'Ultratech Cement',
         'First Class Red Brick',
         'Best Workmanship',
         '🎁 FREE: Complete Home Design + Roof Waterproofing'
-      ]
+      ],
+      whatsappMessage: 'Hi Home Aura, I would like to know more about your Construction Work — Premium Structure Package. Please share the detailed quotation and inclusions.'
     }
   ],
   finish: [
     {
       name: 'Basic Finish Package',
-      price: '₹1449/sq.ft.',
       features: [
         'Kay-2 TMT Steel + Bangur / JK Lakshmi Cement',
         'Second Class Red Brick / Fly Ash Brick',
@@ -59,11 +70,11 @@ const packagesData = {
         'Standard Electrical & Plumbing Fittings',
         'Economy Paint Finish with Basic Sanitary Setup',
         'Basic Workmanship'
-      ]
+      ],
+      whatsappMessage: 'Hi Home Aura, I would like to know more about your Finish Work — Basic Finish Package. Please share the detailed quotation and inclusions.'
     },
     {
       name: 'Good Quality Finish Package',
-      price: '₹1699/sq.ft.',
       highlighted: true,
       features: [
         'Kamdhenu / GK TMT / Goel TMT Steel',
@@ -72,11 +83,11 @@ const packagesData = {
         'Havells / Anchor Electrical Fittings',
         'Asian Paints Finish with Hindware / Finolex Plumbing Materials',
         'Good Workmanship'
-      ]
+      ],
+      whatsappMessage: 'Hi Home Aura, I would like to know more about your Finish Work — Good Quality Finish Package. Please share the detailed quotation and inclusions.'
     },
     {
       name: 'Customized Home Package',
-      price: 'Custom Quote',
       features: [
         'Customized Material Selection',
         'Premium Finish Options',
@@ -84,36 +95,44 @@ const packagesData = {
         'Premium Branded Materials as per Client Choice',
         'Best Workmanship',
         'Fully Customized Planning & Execution According to Lifestyle and Budget'
-      ]
+      ],
+      whatsappMessage: 'Hi Home Aura, I am interested in your Customized Home Package. I would like to discuss my requirements and receive a customized quotation.'
     }
   ],
   design: [
     {
       name: 'Complete Home Design Package',
-      price: '₹16/sq.ft.',
+      oldPrice: '₹20/sq. ft.',
+      price: '₹16/sq. ft.',
+      discountBadge: '20% OFF',
       highlighted: true,
       features: [
         'Floor Plan',
         'Structure Design',
         'MEP Design'
-      ]
+      ],
+      whatsappMessage: 'Hi Home Aura, I am interested in the Complete Home Design Package at ₹16/sq. ft. Please share the detailed scope of work and next steps.'
     },
     {
       name: 'Interior Design Package',
-      price: '₹25/sq.ft.',
+      price: '₹25/sq. ft.',
       features: [
         'Interior 3D Designs',
         'Working Drawings'
-      ]
+      ],
+      whatsappMessage: 'Hi Home Aura, I am interested in the Interior Design Package at ₹25/sq. ft. Please share the detailed scope of work and next steps.'
     },
     {
       name: 'Design + Complete Structural Consultancy',
-      price: '₹70/sq.ft.',
+      oldPrice: '₹80/sq. ft.',
+      price: '₹60/sq. ft.',
+      discountBadge: '25% OFF',
       features: [
         'Complete Design Support',
         'Complete Structural Guidance',
         'Site Consultation'
-      ]
+      ],
+      whatsappMessage: 'Hi Home Aura, I am interested in the Design + Complete Structural Consultancy package at ₹60/sq. ft. Please share the detailed scope of work and next steps.'
     },
     {
       name: 'Custom Planning Package',
@@ -122,17 +141,14 @@ const packagesData = {
       features: [
         'Architectural Planning from <span class="text-gold font-semibold">₹3/sq.ft.</span>',
         'Architecture + Structure from <span class="text-gold font-semibold">₹9/sq.ft.</span>'
-      ]
+      ],
+      whatsappMessage: 'Hi Home Aura, I am interested in the Custom Planning Package. I would like to discuss my requirements and receive a customized quotation.'
     }
   ]
 };
 
 export function Pricing() {
   const [activeTab, setActiveTab] = useState('construction');
-
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <section id="packages" className="py-24 bg-[#060D2C] relative overflow-hidden">
@@ -189,9 +205,9 @@ export function Pricing() {
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className={`grid grid-cols-1 md:grid-cols-2 ${activeTab === 'design' ? 'lg:grid-cols-4' : 'lg:grid-cols-3'} gap-8 items-stretch`}
             >
-              {(packagesData as any)[activeTab].map((pkg: any, i: number) => (
+              {packagesData[activeTab].map((pkg, i: number) => (
                 <motion.div
-                  key={i}
+                  key={pkg.name}
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
@@ -207,19 +223,38 @@ export function Pricing() {
                     </div>
                   )}
                   
-                  <div className="mb-10 text-center">
-                    <h3 className="text-xl font-serif mb-4 text-white group-hover:text-gold transition-colors duration-300">
-                      {pkg.name}
-                    </h3>
-                    <div className="flex flex-col items-center">
-                      <span className="text-2xl font-sans font-medium text-white/90">
-                        {pkg.price}
-                      </span>
-                      <span className="text-[10px] uppercase tracking-widest text-white/40 mt-1">Starting Price</span>
+                  {pkg.price ? (
+                    <div className="mb-6 text-center">
+                      <h3 className="text-xl lg:text-2xl font-serif mb-3 text-white group-hover:text-gold transition-colors duration-300 min-h-[56px] flex items-center justify-center">
+                        {pkg.name}
+                      </h3>
+                      <div className="flex flex-col items-center justify-center">
+                        <div className="flex items-center gap-2.5 flex-wrap justify-center">
+                          <span className="text-2xl lg:text-[26px] font-sans font-bold text-white tracking-tight">
+                            {pkg.price}
+                          </span>
+                          {pkg.oldPrice && (
+                            <span className="text-sm font-sans text-white/40 line-through decoration-white/40">
+                              {pkg.oldPrice}
+                            </span>
+                          )}
+                          {pkg.discountBadge && (
+                            <span className="inline-block bg-gold/15 text-gold text-[10px] font-bold px-2 py-0.5 rounded-sm border border-gold/30 tracking-wider">
+                              {pkg.discountBadge}
+                            </span>
+                          )}
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    <div className="mb-5 text-center">
+                      <h3 className="text-2xl lg:text-[26px] font-serif text-white group-hover:text-gold transition-colors duration-300 leading-snug">
+                        {pkg.name}
+                      </h3>
+                    </div>
+                  )}
 
-                  <div className="flex-grow pt-6 border-t border-white/10">
+                  <div className={`flex-grow ${pkg.price ? 'pt-6 border-t border-white/10' : 'pt-1'}`}>
                     <ul className="space-y-4">
                       {pkg.features.map((feature: string, idx: number) => {
                         const isFree = feature.includes('🎁 FREE:');
@@ -232,7 +267,7 @@ export function Pricing() {
                             <span 
                               className={`text-sm leading-relaxed ${
                                 isFree && isConstruction && isLast 
-                                  ? 'text-white font-bold' 
+                                    ? 'text-white font-bold' 
                                   : 'text-white font-semibold'
                               }`}
                               dangerouslySetInnerHTML={{ __html: feature.replace('🎁 FREE:', '<span class="inline-block bg-gold/10 text-gold text-[10px] font-bold px-2 py-0.5 mr-2 rounded-sm border border-gold/20">FREE</span>') }}
@@ -243,17 +278,19 @@ export function Pricing() {
                     </ul>
                   </div>
 
-                  <div className="mt-12">
-                    <button 
-                      onClick={scrollToContact}
-                      className={`w-full py-4 rounded-none font-bold uppercase text-[10px] tracking-[0.3em] transition-all duration-500 ${
+                  <div className="mt-8 pt-4">
+                    <a 
+                      href={`https://wa.me/916264555840?text=${encodeURIComponent(pkg.whatsappMessage)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`w-full py-4 rounded-none font-bold uppercase text-[10px] tracking-[0.3em] transition-all duration-500 inline-flex items-center justify-center text-center ${
                         pkg.highlighted
                         ? 'bg-gold text-navy hover:bg-white hover:text-navy shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_25px_rgba(255,255,255,0.2)]'
                         : 'border border-white/10 text-white hover:border-gold hover:text-gold bg-white/[0.02]'
                       }`}
                     >
                       {pkg.cta || 'Get Detailed Quote'}
-                    </button>
+                    </a>
                   </div>
                 </motion.div>
               ))}
