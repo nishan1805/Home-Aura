@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import { SmoothScroll } from '@/components/smooth-scroll';
+import DiwaliOfferPopup from "../components/DiwaliOfferPopup";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif' });
@@ -20,6 +21,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body suppressHydrationWarning className="antialiased font-sans">
         <SmoothScroll>{children}</SmoothScroll>
+        <DiwaliOfferPopup />
       </body>
     </html>
   );
