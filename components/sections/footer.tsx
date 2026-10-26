@@ -1,6 +1,6 @@
 'use client';
 
-import { Instagram, Facebook } from 'lucide-react';
+import { Instagram, Facebook, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -22,17 +22,19 @@ export function Footer() {
             A Peaceful Home Creates A Powerful Aura. Building quality civil construction and bespoke interiors across Chhattisgarh.
           </p>
 
-          {/* Social Icons - Instagram & Facebook only */}
+          {/* Social Icons - Instagram, Facebook & LinkedIn */}
           <div className="flex gap-6 mb-12">
             {[
-              { Icon: Instagram, href: "https://www.instagram.com/home_aura_design_and_const/" },
-              { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61569740781116" }
+              { Icon: Instagram, href: "https://www.instagram.com/home_aura_design_and_const/", label: "Instagram" },
+              { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61569740781116", label: "Facebook" },
+              { Icon: Linkedin, href: "https://www.linkedin.com/company/home-aura-design-and-construction", label: "LinkedIn" }
             ].map((social, i) => (
               <a 
                 key={i} 
                 href={social.href} 
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={social.label}
                 className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-gold hover:text-gold hover:bg-gold/5 transition-all duration-500"
               >
                 <social.Icon size={18} strokeWidth={1.5} />
