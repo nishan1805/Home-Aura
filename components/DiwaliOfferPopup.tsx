@@ -23,10 +23,10 @@ export default function DiwaliOfferPopup() {
   if (!isOpen) return null;
 
   const message = encodeURIComponent(
-    "Hello Home Aura! I am interested in your Diwali offer. Please share more details."
+    "Hello Home Aura! I'm interested in your Diwali offer. Please share more details and help me book a consultation. Thank you."
   );
 
-  const whatsappUrl = `https://api.whatsapp.com/send/?phone=916264555840&text=Hello%20Home%20Aura%2C%20I%27m%20interested%20in%20your%20Diwali%20offer.%20Please%20share%20more%20details%20and%20help%20me%20book%20a%20consultation.%20Thank%20you.&type=phone_number&app_absent=0${message}`;
+  const whatsappUrl = `https://api.whatsapp.com/send/?phone=916264555840&text=${message}&type=phone_number&app_absent=0`;
 
   return (
     <div
@@ -40,21 +40,22 @@ export default function DiwaliOfferPopup() {
         aria-label="Home Aura Diwali offer"
         onClick={(event) => event.stopPropagation()}
       >
-        <img
-          className="diwali-poster"
-          src="/images/diwali-offer.jpeg"
-          alt="Home Aura Diwali offer for home design and construction consultancy"
-        />
-
-        {/* Clickable area positioned over Book Now on the poster */}
+        {/* Entire poster opens WhatsApp */}
         <a
-          className="diwali-book-link"
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
+          className="diwali-poster-link"
           aria-label="Book Home Aura's Diwali offer on WhatsApp"
-        />
+        >
+          <img
+            className="diwali-poster"
+            src="/images/diwali-offer.jpeg"
+            alt="Home Aura Diwali offer for home design and construction consultancy"
+          />
+        </a>
 
+        {/* Close button */}
         <button
           type="button"
           className="diwali-close"
@@ -88,6 +89,13 @@ export default function DiwaliOfferPopup() {
           animation: popupEnter 250ms ease-out;
         }
 
+        .diwali-poster-link {
+          display: block;
+          line-height: 0;
+          cursor: pointer;
+          border-radius: 10px;
+        }
+
         .diwali-poster {
           display: block;
           width: auto;
@@ -98,49 +106,46 @@ export default function DiwaliOfferPopup() {
           border-radius: 10px;
         }
 
-        .diwali-book-link {
+        .diwali-close {
           position: absolute;
-          left: 31%;
-          top: 83.2%;
-          width: 38%;
-          height: 6.5%;
-          border-radius: 40px;
+          top: -14px;
+          right: -14px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          padding: 0;
+          border: 1.5px solid white;
+          border-radius: 50%;
+          background: white;
+          color: black;
+          font-size: 25px;
+          line-height: 1;
+          font-weight: 400;
           cursor: pointer;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+          z-index: 10;
+          transition: background 200ms ease, transform 200ms ease;
         }
 
-        .diwali-close {
-  position: absolute;
-  top: -14px;
-  right: -14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  border: 1.5px solid white;
-  border-radius: 50%;
-  background: white;
-  color: black;
-  font-size: 25px;
-  line-height: 1;
-  font-weight: 400;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  z-index: 10;
-  transition: background 200ms ease, transform 200ms ease;
-}
-
+        .diwali-close:hover {
+          transform: scale(1.05);
+        }
 
         .diwali-close:focus-visible,
-        .diwali-book-link:focus-visible {
+        .diwali-poster-link:focus-visible {
           outline: 3px solid #facc15;
           outline-offset: 3px;
         }
 
         @keyframes overlayFade {
-          from { opacity: 0; }
-          to { opacity: 1; }
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
         }
 
         @keyframes popupEnter {
@@ -164,13 +169,13 @@ export default function DiwaliOfferPopup() {
             max-height: 85vh;
           }
 
-         .diwali-close {
-  top: -10px;
-  right: -10px;
-  width: 32px;
-  height: 32px;
-  font-size: 23px;
-}
+          .diwali-close {
+            top: -10px;
+            right: -10px;
+            width: 32px;
+            height: 32px;
+            font-size: 23px;
+          }
         }
 
         @media (prefers-reduced-motion: reduce) {
